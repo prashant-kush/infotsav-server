@@ -33,6 +33,6 @@ app.post("/email",(req,res)=>
 		});
 	}
 	else
-		res.json("invalid email id entered. Please check and enter again");	
+		res.json("invalid");	
 });
 app.listen(process.env.PORT,()=>console.log(`app is listening to port ${process.env.PORT}`));
