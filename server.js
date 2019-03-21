@@ -14,18 +14,18 @@ app.post("/email",(req,res)=>
 		fs.readFile('email.txt',function(err,data)
 		{
 			if(err)
-				res.json("there is some error. Please try again later")
+				res.json("failed")
 			if(data.indexOf(req.body.email)>=0)
-				res.json("This email id already exists in our database!")
+				res.json("exists")
 			else{
 		
 					fs.open('email.txt', 'a', 666, function( e, id ) {
 						if(e)
-							res.json("There is some error. Please try again or try again later");
+							res.json("failed");
 					   else
 					   	{fs.write( id, req.body.email + "\r\n", null, 'utf8', function(){
 				    	fs.close(id, function(){
-							res.json("Thanks for subscribing with Infotsav. We will get in touch with you soon!");
+							res.json("success");
 					    });
 					   });}
 					  });
