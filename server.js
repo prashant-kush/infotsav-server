@@ -23,11 +23,11 @@ app.post("/email",(req,res)=>
 			if(data.length===0)
 			{
 				knex('email').insert({email: req.body.email});
-				res.json("success")
+				res.json("success");
 			}
 			else
 			{
-				res.json("exits");
+				res.json("exists");
 			}
 		});
 
