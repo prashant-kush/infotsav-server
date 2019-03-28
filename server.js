@@ -22,8 +22,8 @@ app.post("/email",(req,res)=>
 		.then(data=>{
 			if(data.length===0)
 			{
-				knex('email').insert({email: req.body.email});
-				res.json("success");
+				knex('email').insert({email: req.body.email}).then(result=>{res.json("success")});
+				
 			}
 			else
 			{
